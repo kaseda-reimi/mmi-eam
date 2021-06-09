@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
         #model.summary()
 
-        model.fit(X_train[train_index], Y_train[train_index], epochs=10000, workers=-1)
+        model.fit(X_train[train_index], Y_train[train_index], epochs=1000, workers=-1)
         _history.append(model.evaluate(x=X_train[val_index], y=Y_train[val_index]))
 
 
