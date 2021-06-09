@@ -1,11 +1,10 @@
 import numpy as np
-import math
-import random
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 from tensorflow.keras import optimizers
 from sklearn.model_selection import KFold
 from sklearn.model_selection import train_test_split
+import function as fc
 
 input_size = 4
 output_size = 2
