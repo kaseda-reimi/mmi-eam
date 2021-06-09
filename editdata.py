@@ -19,7 +19,7 @@ def main():
     
     data = np.array([normalized_w1, normalized_w2, normalized_l1, normalized_l2, normalized_op, normalized_ex]).T
 
-    path = '/Users/kasedareibi/アーカイブ/Desktop/neural/data_1.txt'
+    path = 'mmi-eam/data.txt'
     write_data(path, data)
 
 
