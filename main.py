@@ -2,6 +2,8 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 import os
+from main_neural import model_path, weight_path
+
 
 input_size = 4
 lr = 0.001
@@ -36,7 +38,7 @@ def calc(x):
 
 
 if __name__ == '__main__':
-    model = load_model('')
+    model = load_model(model_path)
 
     momentum = tf.zeros([pop,input_size])
     x = individuals()
@@ -62,11 +64,4 @@ if __name__ == '__main__':
     print(y[max_id])
     print(E[max_id])
 
-    #path = '/Users/kasedareibi/Desktop/neural/result.txt'
-    with open (path,'a') as f:
-        for i in range(len(x[id])):
-            f.write(str(x[id,i])+" ")
-        f.write("\n")
-        f.write(str(y[id,0])+" "+str(y[id,1]))
-        f.write("\n\n")
-   
+    
