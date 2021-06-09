@@ -9,19 +9,10 @@ import function as fc
 input_size = 4
 output_size = 2
 
-def get_data(path):
-    with open (path) as f:
-        l = f.read().split()
-    l = [float(s) for s in l]
-    l = np.array(l).reshape(-1, input_size+output_size)
-    x = l[:,:input_size]
-    y = l[:,input_size:]
-    return x, y
-
-
 if __name__ == '__main__':
-    path = '/Users/kasedareibi/Desktop/neural/data.txt'
-    X, Y = get_data(path)
+    data = fc.get_data()
+    X = data[:, :input_size]
+    Y = data[:, input_size:]
 
     hidden_size = 9
     N = X.shape[0]
@@ -59,7 +50,7 @@ if __name__ == '__main__':
     print(E_sum/predict.shape[0])
     print(_history)
     
-    model.save('/Users/kasedareibi/Desktop/neural/model500')
-    model.save_weights('/Users/kasedareibi/Desktop/neural/weight')
+    model.save('mmi-eam/model')
+    model.save_weights('mmi-eam/weight')
    
     
