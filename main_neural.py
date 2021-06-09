@@ -10,7 +10,7 @@ input_size = 4
 output_size = 2
 
 model_path ='mmi-eam/model'
-weight_path = 'mmi-eam/weigh'
+weight_path = 'mmi-eam/weight'
 
 if __name__ == '__main__':
     data = fc.get_data()
