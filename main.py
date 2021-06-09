@@ -22,7 +22,7 @@ def calc(x):
     x_model = x
     #x_model[:,1] = x[:,1] * 0.5 + 0.3
     #x_model[:,3] = x[:,3] * (1 - x[:,2])
-    x_model = tf.valiable(x_model) #tf.constant
+    x_model = tf.variable(x_model) #tf.constant
     with tf.GradientTape() as tape:
         tape.watch(x_model)
         y = model(x_model, training=False)
