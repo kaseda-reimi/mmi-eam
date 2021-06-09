@@ -1,7 +1,7 @@
 import numpy as np
 
 def get_data_r():
-    path = '/Users/kasedareibi/アーカイブ/Desktop/neural/data_r.txt'
+    path = 'mmi-eam/data_r.txt'
     with open (path) as f:
         l = f.read().split()
     l = [float(s) for s in l]
@@ -9,7 +9,7 @@ def get_data_r():
     return l
 
 def get_data():
-    path = '/Users/kasedareibi/アーカイブ/Desktop/neural/data.txt'
+    path = 'mmi-eam/data.txt'
     with open (path) as f:
         l = f.read().split()    
     l = [float(s) for s in l]
