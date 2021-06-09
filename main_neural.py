@@ -9,6 +9,9 @@ import function as fc
 input_size = 4
 output_size = 2
 
+model_path ='mmi-eam/model'
+weight_path = 'mmi-eam/weigh'
+
 if __name__ == '__main__':
     data = fc.get_data()
     X = data[:, :input_size]
@@ -50,7 +53,7 @@ if __name__ == '__main__':
     print(E_sum/predict.shape[0])
     print(_history)
     
-    model.save('mmi-eam/model')
-    model.save_weights('mmi-eam/weight')
+    model.save(model_path)
+    model.save_weights(weight_path)
    
     
