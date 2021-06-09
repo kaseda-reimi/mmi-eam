@@ -4,6 +4,7 @@ from tensorflow.keras.layers import Dense
 from tensorflow.keras import optimizers
 from sklearn.model_selection import KFold
 from sklearn.model_selection import train_test_split
+import os
 import function as fc
 
 input_size = 4
@@ -33,7 +34,7 @@ if __name__ == '__main__':
 
         #model.summary()
 
-        model.fit(X_train[train_index], Y_train[train_index], epochs=1000, workers=-1)
+        model.fit(X_train[train_index], Y_train[train_index], epochs=1000, workers=os.cpu_count())
         _history.append(model.evaluate(x=X_train[val_index], y=Y_train[val_index]))
 
 
