@@ -1,7 +1,8 @@
 import numpy as np
 import function as fc
 
-max_op = 0.9,   min_op = 0
+max_op = 0.9
+min_op = 0
 max_ex = 30,    min_ex = 0 #０以下を評価で除外
 max_w1 = 4.5e-6,min_w1 = 1e-6
 max_w2 = 0.8,   min_w2 = 0.1
