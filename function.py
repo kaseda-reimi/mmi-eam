@@ -5,17 +5,17 @@ def get_data_r():
     path = os.getcwd()+'/data_r.txt'
     with open (path) as f:
         l = f.read().split()
-    l = [float(s) for s in l]
-    l = np.array(l).reshape(-1, 13)
-    return l
+    data = [float(s) for s in l]
+    data = np.array(data).reshape(-1, 13)
+    return data
 
 def get_data():
     path = os.getcwd()+'/data.txt'
     with open (path) as f:
         l = f.read().split()    
-    l = [float(s) for s in l]
-    l = np.array(l).reshape(-1, 6)
-    return l
+    data = [float(s) for s in l]
+    data = np.array(data).reshape(-1, 6)
+    return data
 
 def write_data(path, data):
     with open(os.getcwd()+path, mode='w') as f:
