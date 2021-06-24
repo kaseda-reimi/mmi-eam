@@ -6,8 +6,6 @@ sudo apt-get install tmux
 
 python3 -m venv .venv
 
-tmux
-
 . .venv/bin/activate
 
 pip install --upgrade pip
@@ -16,5 +14,5 @@ pip install matplotlib
 pip install tensorflow
 pip install os
 
-
+#tmux
 #ulimit 
