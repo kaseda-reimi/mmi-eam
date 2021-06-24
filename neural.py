@@ -40,7 +40,7 @@ def main():
         model.compile(loss = "mean_squared_error", optimizer = sgd, metrics = ["mae"])
 
         #model.summary()
-        model.fit(X_train[train_index], Y_train[train_index], epochs=epochs, workers=os.cpu_count())
+        model.fit(X_train[train_index], Y_train[train_index], epochs=epochs, workers=1)
         _history.append(model.evaluate(x=X_train[val_index], y=Y_train[val_index]))
     
     predict = model.predict(X_test)
