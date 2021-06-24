@@ -3,11 +3,16 @@ import function as fc
 
 max_op = 0.9
 min_op = 0
-max_ex = 30,    min_ex = 0 #０以下を評価で除外
-max_w1 = 4.5e-6,min_w1 = 1e-6
-max_w2 = 0.8,   min_w2 = 0.1
-max_l1 = 0.7,   min_l1 = 0
-max_l2 = 0.9,   min_l2 = 0
+max_ex = 30
+min_ex = 0 #０以下を評価で除外
+max_w1 = 4.5e-6
+min_w1 = 1e-6
+max_w2 = 0.8
+min_w2 = 0.1
+max_l1 = 0.7
+min_l1 = 0
+max_l2 = 0.9
+min_l2 = 0
 
 def main():
     data_r = fc.get_data_r()
