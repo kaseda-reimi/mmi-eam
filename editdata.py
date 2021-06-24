@@ -32,8 +32,7 @@ def main():
     
     data = np.array([normalized_w1, normalized_w2, normalized_l1, normalized_l2, normalized_op, normalized_ex]).T
 
-    path = 'mmi-eam/data.txt'
-    write_data(path, data)
+    fc.write_data('/data.txt', data)
 
 
 #正規化
@@ -60,14 +59,6 @@ def normalize_extinction_ratio(extinction_ratio):
 def normalize_output_off(output_off):
     normalized_op = (output_off - min_op) / (max_op - min_op)
     return normalized_op
-
-
-def write_data(path, data):
-    with open(path, mode='w') as f:
-        for i in range(data.shape[0]):
-            for n in data[i]:
-                f.write(str(n))
-            f.write('\n')
 
 #非正規化
 def denormalize_w1(normalized_w1):
