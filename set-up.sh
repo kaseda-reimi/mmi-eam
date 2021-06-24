@@ -2,6 +2,8 @@
 #sudo apt-get install -yq git python3.7 python3-venv
 #git clone 
 
+git config --global user.name "kaseda-reimi"
+
 sudo apt-get install tmux
 
 python3 -m venv .venv
