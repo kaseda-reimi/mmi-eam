@@ -1,4 +1,5 @@
 import numpy as np
+import os
 
 def get_data_r():
     path = '/home/kasedareimiynu/mmi-eam/data_r.txt'
