@@ -21,5 +21,5 @@ def write_data(path, data):
     with open(os.getcwd()+path, mode='w') as f:
         for i in range(data.shape[0]):
             for n in data[i]:
-                f.write(str(n))
+                f.write(str(n)+" ")
             f.write('\n')
