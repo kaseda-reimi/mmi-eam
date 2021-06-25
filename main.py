@@ -1,7 +1,7 @@
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import load_model
-from neural import model_path, weight_path
+from neural import model_path
 
 
 input_size = 4
