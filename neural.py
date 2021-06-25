@@ -18,6 +18,7 @@ lr = 0.001
 momentum = 0.9
 epochs = 5000
 
+
 model_path =os.getcwd()+'model'
 weight_path = os.getcwd()+'weight'
 
@@ -40,7 +41,7 @@ def main():
         model.compile(loss = "mean_squared_error", optimizer = sgd, metrics = ["mae"])
 
         #model.summary()
-        model.fit(X_train[train_index], Y_train[train_index], epochs=epochs, workers=1)
+        model.fit(X_train[train_index], Y_train[train_index], epochs=epochs)
         _history.append(model.evaluate(x=X_train[val_index], y=Y_train[val_index]))
     
     predict = model.predict(X_test)
