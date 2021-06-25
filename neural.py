@@ -19,8 +19,8 @@ momentum = 0.9
 epochs = 5000
 
 
-model_path =os.getcwd()+'model'
-weight_path = os.getcwd()+'weight'
+model_path =os.getcwd()+'/model'
+weight_path = os.getcwd()+'/weight'
 
 def main():
     data = fc.get_data()
