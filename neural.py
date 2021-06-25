@@ -17,10 +17,10 @@ test_size = 0.1
 lr = 0.001
 momentum = 0.9
 epochs = 5000
+workers = os.cpu_count()
 
 
 model_path =os.getcwd()+'/model'
-weight_path = os.getcwd()+'/weight'
 
 def main():
     data = fc.get_data()
@@ -41,7 +41,7 @@ def main():
         model.compile(loss = "mean_squared_error", optimizer = sgd, metrics = ["mae"])
 
         #model.summary()
-        model.fit(X_train[train_index], Y_train[train_index], epochs=epochs)
+        model.fit(X_train[train_index], Y_train[train_index], epochs=epochs, workers=workers, use_multiprocessing=True)
         _history.append(model.evaluate(x=X_train[val_index], y=Y_train[val_index]))
     
     predict = model.predict(X_test)
@@ -58,7 +58,6 @@ def main():
     print(_history)
     
     model.save(model_path)
-    model.save_weights(weight_path)
 
 if __name__ == '__main__':
     main()
