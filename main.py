@@ -18,14 +18,13 @@ def individuals():
 
 
 def calc(x):
-    x_model = x
     #x_model[:,1] = x[:,1] * 0.5 + 0.3
     #x_model[:,3] = x[:,3] * (1 - x[:,2])
-    x_model = tf.Variable(x_model) #tf.constant
+    x_model = tf.Variable(x)
     with tf.GradientTape() as tape:
         tape.watch(x_model)
-        y = model(x_model, training=False)
-        E = tf.reduce_sum(y,1)  #y[消光比, 無電界時の光出力]
+        y = model(x_model, training=False) #[消光比, 無電界時の光出力]
+        E = tf.reduce_sum(y,1)
     grad = tape.gradient(E, x_model)
     E = E.numpy()
     grad = grad.numpy()
