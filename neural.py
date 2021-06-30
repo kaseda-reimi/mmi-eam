@@ -21,7 +21,16 @@ workers = os.cpu_count()
 
 model_path =os.getcwd()+'/model'
 
-def main():
+def create_model():
+    model = Sequential()
+    model.add(Dense(hidden_size, input_dim = input_size, activation = "relu"))
+    model.add(Dense(hidden_size, activation = "relu"))
+    model.add(Dense(output_size, activation = "linear"))
+    sgd = optimizers.SGD(learning_rate=lr, momentum=momentum)
+    model.compile(loss = "mean_squared_error", optimizer = sgd, metrics = ["mae"])
+    return model
+
+def main_cross_validation():
     data = fc.get_data()
     X = data[:, :input_size]
     Y = data[:, input_size:]
@@ -32,31 +41,45 @@ def main():
     _history = []
 
     for train_index, val_index in kf.split(X_train, Y_train):
-        model = Sequential()
-        model.add(Dense(hidden_size, input_dim = input_size, activation = "relu"))
-        model.add(Dense(hidden_size, activation = "relu"))
-        model.add(Dense(output_size, activation = "linear"))
-        sgd = optimizers.SGD(learning_rate=lr, momentum=momentum)
-        model.compile(loss = "mean_squared_error", optimizer = sgd, metrics = ["mae"])
-
+        model = create_model()
         #model.summary()
         model.fit(X_train[train_index], Y_train[train_index], epochs=epochs, workers=workers, use_multiprocessing=True)
         _history.append(model.evaluate(x=X_train[val_index], y=Y_train[val_index]))
     
     predict = model.predict(X_test)
 
-    E = abs(predict - Y_test)
-    E_sum = 0
+    error = abs(predict - Y_test)
+    error_sum = 0
     for i in range(predict.shape[0]):
-        #print(X_test[i, :])
         print(Y_test[i,:])
         print(predict[i,:])
         print("")
-        E_sum += E[i]*E[i]
-    print(E_sum/predict.shape[0])
+        error_sum += error[i]*error[i]
+    print(error_sum/predict.shape[0])
     print(_history)
     
     model.save(model_path)
+
+def main():
+    data = fc.get_data()
+    X = data[:, :input_size]
+    Y = data[:, input_size:]
+    N = X.shape[0]
+
+    X_train, X_test, Y_train, Y_test = train_test_split(X,Y,test_size=test_size)
+    model = create_model()
+    model.fit(X_train, Y_train, epochs=epochs, workers=workers, use_multiprocessing=True)
+    predict = model.predict(X_test)
+    error = abs(predict - Y_test)
+    error_sum = 0
+    for i in range(predict.shape[0]):
+        print(Y_test[i,:])
+        print(predict[i,:])
+        print("")
+        error_sum += error[i]*error[i]
+    print(error_sum/predict.shape[0])
+    model.save(model_path)
+
 
 if __name__ == '__main__':
     main()
