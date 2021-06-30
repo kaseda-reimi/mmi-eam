@@ -16,7 +16,7 @@ test_size = 0.1
 
 lr = 0.001
 momentum = 0.9
-epochs = 2000
+epochs = 5000
 workers = os.cpu_count()
 
 model_path =os.getcwd()+'/model'
