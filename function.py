@@ -23,3 +23,4 @@ def write_data(path, data):
             for n in data[i]:
                 f.write(str(n)+" ")
             f.write('\n')
+        f.write('\n')
