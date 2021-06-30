@@ -19,7 +19,6 @@ momentum = 0.9
 epochs = 5000
 workers = os.cpu_count()
 
-
 model_path =os.getcwd()+'/model'
 
 def main():
@@ -37,7 +36,7 @@ def main():
         model.add(Dense(hidden_size, input_dim = input_size, activation = "relu"))
         model.add(Dense(hidden_size, activation = "relu"))
         model.add(Dense(output_size, activation = "linear"))
-        sgd = optimizers.SGD(lr=lr, momentum=momentum)
+        sgd = optimizers.SGD(learning_rate=lr, momentum=momentum)
         model.compile(loss = "mean_squared_error", optimizer = sgd, metrics = ["mae"])
 
         #model.summary()
