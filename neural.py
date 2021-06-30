@@ -9,7 +9,7 @@ import function as fc
 
 input_size = 4
 output_size = 2
-hidden_size = 3
+hidden_size = 30
 
 n_splits = 3
 test_size = 0.1
@@ -79,9 +79,6 @@ def main():
         error_sum += error[i]*error[i]
     print(error_sum/predict.shape[0])
     model.save(model_path)
-
-    print(N)
-    print(predict.shape[0])
 
 
 if __name__ == '__main__':
