@@ -79,10 +79,8 @@ def main():
         error_sum += error[i]*error[i]
     print(error_sum/predict.shape[0])
     model.save(model_path)
-    Y_path = os.getcwd()+'/Y.txt'
-    predict_path = os.getcwd()+'predict.txt'
-    fc.write_data(Y_path, Y_test)
-    fc.write_data(predict_path, predict)
+    fc.write_data('/Y.txt', Y_test)
+    fc.write_data('/predict.txt', predict)
 
 
 if __name__ == '__main__':
