@@ -16,7 +16,7 @@ test_size = 0.1
 
 lr = 0.001
 momentum = 0.9
-epochs = 5000
+epochs = 1000
 workers = os.cpu_count()
 
 model_path =os.getcwd()+'/model'
@@ -79,6 +79,9 @@ def main():
         error_sum += error[i]*error[i]
     print(error_sum/predict.shape[0])
     model.save(model_path)
+
+    print(N)
+    print(predict.shape[0])
 
 
 if __name__ == '__main__':
