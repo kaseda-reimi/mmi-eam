@@ -34,6 +34,17 @@ def main():
 
     fc.write_data('/data.txt', data)
 
+def main_not_normalize():
+    data_r = fc.get_data_r()
+    w1,L,w2,l1,l2, _,_,output_off,_, _,_,output_on,_= data_r.T
+
+    rate_w2 = (w1-w2) / (w1*2)
+    rate_l1 = l1 / L
+    rate_l2 = (L-l1-l2) / L
+    extinction_ratio = 20 * np.log10 (output_off / output_on)
+
+    data = np.array([w1, rate_w2, rate_l1, rate_l2, output_off, extinction_ratio]).T
+    fc.write_data('/data_no.txt', data)
 
 #正規化
 def normalize_w1(w1):
@@ -87,4 +98,4 @@ def denormalize_output_off(normalized_op):
 
 
 if __name__ == '__main__':
-    main()
+    main_not_normalize()
