@@ -31,7 +31,7 @@ def create_model():
     return model
 
 def main_cross_validation():
-    data = fc.get_data(data.txt)
+    data = fc.get_data('data.txt')
     X = data[:, :input_size]
     Y = data[:, input_size:]
     N = X.shape[0]
@@ -61,7 +61,7 @@ def main_cross_validation():
     model.save(model_path)
 
 def main():
-    data = fc.get_data(data_no.txt)
+    data = fc.get_data('data_no.txt')
     X = data[:, :input_size]
     Y = data[:, input_size:]
     N = X.shape[0]
