@@ -9,8 +9,8 @@ def get_data_r():
     data = np.array(data).reshape(-1, 13)
     return data
 
-def get_data():
-    path = os.getcwd()+'/data.txt'
+def get_data(name):
+    path = os.getcwd()+'/'+name
     with open (path) as f:
         l = f.read().split()    
     data = [float(s) for s in l]
