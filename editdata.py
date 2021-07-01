@@ -41,7 +41,7 @@ def main_not_normalize():
     rate_w2 = (w1-w2) / (w1*2)
     rate_l1 = l1 / L
     rate_l2 = (L-l1-l2) / L
-    extinction_ratio = 20 * np.log10 (output_off / output_on)
+    extinction_ratio = np.log10 (output_off / output_on)
 
     data = np.array([w1, rate_w2, rate_l1, rate_l2, output_off, extinction_ratio]).T
     fc.write_data('/data_no.txt', data)
