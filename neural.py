@@ -26,7 +26,7 @@ def create_model():
     model.add(Dense(hidden_size, input_dim = input_size, activation = "relu"))
     model.add(Dense(hidden_size, activation = "relu"))
     model.add(Dense(output_size, activation = "linear"))
-    sgd = optimizers.SGD(learning_rate=lr, momentum=momentum)
+    sgd = optimizers.Adam(learning_rate=lr)
     model.compile(loss = "mean_squared_error", optimizer = sgd, metrics = ["mae"])
     return model
 
